@@ -2,6 +2,7 @@ package com.api.pixcontrol.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import java.io.Serializable;
@@ -15,23 +16,19 @@ public class PixControlModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column (nullable = false, unique = true, length = 11)
-    private int pixUserCPF;
+    private String pixUserCpf;
 
-    @Column (nullable = false, length = 130)
     private String pixUserName;
 
-    @Column (nullable = false, length = 70)
-    private String nameOfInstitutionName;
+    private String institutionName;
 
-    @Column (nullable = false, unique = true, length = 11)
-    private int pixKeyCPF;
+    private String pixKeyCpf;
 
-    @Column (nullable = false, unique = true, length = 100)
     private String pixKeyEmail;
 
-    @Column (nullable = false, unique = true, length = 11)
-    private int pixKeyCell;
+    private String pixKeyCell;
+
+    private LocalDateTime registrationData;
 
     public UUID getId() {
         return id;
@@ -41,12 +38,12 @@ public class PixControlModel implements Serializable {
         this.id = id;
     }
 
-    public int getPixUserCPF() {
-        return pixUserCPF;
+    public String getPixUserCpf() {
+        return pixUserCpf;
     }
 
-    public void setPixUserCPF(int pixUserCPF) {
-        this.pixUserCPF = pixUserCPF;
+    public void setPixUserCpf(String pixUserCpf) {
+        this.pixUserCpf = pixUserCpf;
     }
 
     public String getPixUserName() {
@@ -57,20 +54,20 @@ public class PixControlModel implements Serializable {
         this.pixUserName = pixUserName;
     }
 
-    public String getNameOfInstitutionName() {
-        return nameOfInstitutionName;
+    public String getInstitutionName() {
+        return institutionName;
     }
 
-    public void setNameOfInstitutionName(String nameOfInstitutionName) {
-        this.nameOfInstitutionName = nameOfInstitutionName;
+    public void setInstitutionName(String institutionName) {
+        this.institutionName = institutionName;
     }
 
-    public int getPixKeyCPF() {
-        return pixKeyCPF;
+    public String getPixKeyCpf() {
+        return pixKeyCpf;
     }
 
-    public void setPixKeyCPF(int pixKeyCPF) {
-        this.pixKeyCPF = pixKeyCPF;
+    public void setPixKeyCpf(String pixKeyCpf) {
+        this.pixKeyCpf = pixKeyCpf;
     }
 
     public String getPixKeyEmail() {
@@ -81,11 +78,19 @@ public class PixControlModel implements Serializable {
         this.pixKeyEmail = pixKeyEmail;
     }
 
-    public int getPixKeyCell() {
+    public String getPixKeyCell() {
         return pixKeyCell;
     }
 
-    public void setPixKeyCell(int pixKeyCell) {
+    public void setPixKeyCell(String pixKeyCell) {
         this.pixKeyCell = pixKeyCell;
+    }
+
+    public LocalDateTime getRegistrationData() {
+        return registrationData;
+    }
+
+    public void setRegistrationData(LocalDateTime registrationData) {
+        this.registrationData = registrationData;
     }
 }
